@@ -21,7 +21,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Your Learning Dashboard</h1>
+      <h1 className="text-2xl font-bold mb-4">Your Learning Dashboard V1.1.5</h1>
       <Link to="/select-program">
         <Button className="mb-4">Select Programs</Button>
       </Link>
