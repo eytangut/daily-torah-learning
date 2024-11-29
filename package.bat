@@ -1,24 +1,29 @@
 @echo off
 setlocal
 
-:: Define paths
-set "SOURCE_DIR=./dist"
-set "DEST_ZIP=./docs/dist.zip"
+REM Define the paths
+set DIST_FOLDER=dist
+set ZIP_FILE=docs\dist.zip
 
-:: Check if the source directory exists
-if not exist "%SOURCE_DIR%" (
-    echo Source directory %SOURCE_DIR% does not exist.
-    exit /b
+REM Check if the DIST folder exists
+if not exist "%DIST_FOLDER%" (
+    echo The dist folder does not exist.
+    exit /b 1
 )
 
-:: Remove existing zip file if it exists
-if exist "%DEST_ZIP%" (
-    del "%DEST_ZIP%"
+REM Create the docs directory if it does not exist
+if not exist "docs" (
+    mkdir docs
 )
 
-:: Create a new zip file from the source directory
-tar -a -c -f "%DEST_ZIP%" -C "%SOURCE_DIR%" .
+REM Remove the existing zip file if it exists
+if exist "%ZIP_FILE%" (
+    del "%ZIP_FILE%"
+)
 
-echo Zipping completed. The zip file is located at %DEST_ZIP%.
+REM Package the dist folder into a zip file
+powershell -command "Compress-Archive -Path '%DIST_FOLDER%\*' -DestinationPath '%ZIP_FILE%'"
+
+echo Packaging complete: %ZIP_FILE%
 
 endlocal

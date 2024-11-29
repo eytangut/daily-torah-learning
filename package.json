@@ -16,6 +16,7 @@
     "@capacitor/local-notifications": "^6.1.1",
     "@capacitor/splash-screen": "^6.0.3",
     "@capgo/capacitor-updater": "^6.4.1",
+    "@capgo/cli": "^4.26.4",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-progress": "^1.1.0",
     "@radix-ui/react-select": "^2.1.2",

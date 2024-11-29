@@ -1,11 +1,20 @@
-
 import ReactDOM from 'react-dom/client';
-import {default as AppTag} from './App';
+import App from './App';
 import './index.css';
 import { scheduleNotifications } from './services/notifications';
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+import { CapacitorUpdater } from '@capgo/capacitor-updater';
 
-    <AppTag />
+// Ensure the DOM is fully loaded before rendering
+const rootElement = document.getElementById('root') as HTMLElement;
 
-);
-scheduleNotifications()
+if (rootElement) {
+    ReactDOM.createRoot(rootElement).render(<App />);
+    
+    // Schedule notifications after the app is rendered
+    scheduleNotifications();
+
+    // Notify Capgo that the app is ready for updates
+    CapacitorUpdater.notifyAppReady();
+} else {
+    console.error('Root element not found');
+}
