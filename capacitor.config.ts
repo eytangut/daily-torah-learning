@@ -10,7 +10,6 @@ const config: CapacitorConfig = {
       iconColor: "#488AFF"
     },
     CapacitorUpdater: {
-      autoUpdate: false,
       updateUrl: 'https://eytangut.github.io/daily-torah-learning/updates.json'
     }
   }
