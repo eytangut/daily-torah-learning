@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button";
 
 const learningOptions = [
   { id: 'shnaim-mikra', name: 'Shnaim Mikra' },
-  { id: 'daf-yomi', name: 'Daf Yomi' },
-  { id: 'rambam-yomi', name: 'Rambam Yomi' },
 ];
 
 const LearningSelector: React.FC = () => {
